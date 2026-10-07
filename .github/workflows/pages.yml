@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
   push:
     branches: [main, master]
-    paths: [landing/**, .github/workflows/pages.yml]
 
 permissions:
   contents: read
@@ -27,7 +26,7 @@ jobs:
       - name: Copy site root
         run: |
           mkdir -p _site
-          cp -r landing/. _site/
+          cp -r index.html assets _site/
           # don't let GitHub Pages run Jekyll over the static site
           touch _site/.nojekyll
       - name: Upload artifact
